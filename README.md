@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# App Route
 
-## Getting Started
+- Next.js automates routing through its file-based routing system. 
+- A file placed in the src/app directory will automatically become a route in your application. 
+In this case:
+> The page.jsx file inside the contact folder translates to the /contact route in your web application. 
+- You can access the contact page by navigating to:
+ ` http://yourdomain.com/contact `
 
-First, run the development server:
+## Nested Route
+>This project showcases a Next.js application that utilizes nested routing. The blog page is set up to allow for hierarchical routes, enabling users to view blog categories and specific blog posts efficiently.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- The file structure for the blog pages might look like this:
+/src/app
+  ├── blog
+  │   ├── page.jsx          // BlogPage Component
+  │   └── [slug]
+  │       └── page.jsx      // Blog Post Component
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Component Definition: The BlogPage function is defined as a React component that represents the main blog page.
+- Export: It's exported as a default export, making it accessible for routing.
+- JSX Return: The component returns a basic structure with a heading and introductory text.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Nested Route for Blog Posts
+- For each blog post, you can create a dynamic route. Here’s how the blog post page would look, located at /src/app/blog/[slug]/page.jsx:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+##### Explanation
+- Dynamic Route: The [slug] folder allows you to create dynamic routes based on the blog post ID.
+- Props: The params object contains route parameters, allowing you to display content specific to each post.
+- JSX Return: The component returns the post's title and ID.
 
-## Learn More
+> Next.js uses file-based routing, making nested routes straightforward. <br/>
+> The structure above translates to the following routes:
 
-To learn more about Next.js, take a look at the following resources:
+- Blog Page: Accessible at
+`http://yourdomain.com/blog`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Blog Post Page: Accessible at
+`http://yourdomain.com/blog/[postId]`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- For example, a blog post with slug of 1 would be accessed via:
+`http://yourdomain.com/blog/1`
 
-## Deploy on Vercel
+### Grouped pages
+> This project is a Next.js application that implements authentication-related pages, including registration, login, and forgot password functionality. These pages are grouped under the auth route for better organization.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### - File Structure
+`/src/app/(auth)`  
+`|--register` <br/>
+`|--login`<br/>
+`|--forgot-password`
+- Register Page : accessible at
+`http://yourdomain.com/register`
+- Login Page : accessible at
+`http://yourdomain.com/login`
+- Forgot password Page : accessible at
+`http://yourdomain.com/forgot-password`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+>(auth) is igonored it does not count as route
