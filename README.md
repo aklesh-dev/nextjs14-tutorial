@@ -10,12 +10,12 @@ In this case:
 ## Nested Route
 >This project showcases a Next.js application that utilizes nested routing. The blog page is set up to allow for hierarchical routes, enabling users to view blog categories and specific blog posts efficiently.
 
-- The file structure for the blog pages might look like this:
-/src/app
-  ├── blog
-  │   ├── page.jsx          // BlogPage Component
-  │   └── [slug]
-  │       └── page.jsx      // Blog Post Component
+- The file structure for the blog pages might look like this: <br/>
+/src/app <br/>
+----- ├── blog <br/>
+-----  │-----   ├── page.jsx         // BlogPage Component <br/> 
+-----  │   └── [slug] <br/>
+-----  │-------       └── page.jsx      // Blog Post Component
 
 - Component Definition: The BlogPage function is defined as a React component that represents the main blog page.
 - Export: It's exported as a default export, making it accessible for routing.
