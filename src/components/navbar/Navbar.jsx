@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <section className={styles.container}>
       <Link href={"/"} className={styles.logo}>
-        logo
+        Aklesh
       </Link>
 
       <div>
